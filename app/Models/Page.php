@@ -22,4 +22,10 @@ class Page extends Model
     protected $casts = [
         'key_traits' => 'array',
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
 }

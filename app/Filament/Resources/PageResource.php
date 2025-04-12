@@ -2,6 +2,7 @@
 
 namespace App\Filament\Resources;
 
+use App\Filament\Resources\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\PageResource\Pages;
 use App\Models\Page;
 use Filament\Forms;
@@ -53,8 +54,6 @@ class PageResource extends Resource
                             ->blocks(array_map(function ($trait) {
                                 return Forms\Components\Builder\Block::make($trait['key'])
                                     ->schema([
-                                        Forms\Components\Hidden::make('key')
-                                            ->default($trait['key']),
                                         ...$trait['components']
                                     ])
                                     ->icon($trait['icon'])
@@ -90,7 +89,7 @@ class PageResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+           CommentsRelationManager::class,
         ];
     }
 

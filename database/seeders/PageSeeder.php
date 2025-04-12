@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
 use Illuminate\Database\Seeder;
 use App\Models\Page;
 use Faker\Factory as Faker;
@@ -16,20 +16,32 @@ class PageSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        foreach (range(1, 10) as $index) {
-            Page::create([
+        foreach (range(1, 1) as $index) {
+            $page = Page::create([
                 'name' => $faker->name,
                 'birth_date' => $faker->date(),
                 'death_date' => $faker->date(),
                 'location' => $faker->city . ', ' . $faker->state,
                 'biography' => $faker->paragraph,
-                'key_traits' => json_encode(array_map(function ($trait) {
+                'key_traits' => array_map(function ($trait) use($faker) {
                     return [
-                        'key' => $trait['key'],
-                        'icon' => $trait['icon'],
+                        'type' => $trait['key'],
+                        'data' => [
+                            'value' => $faker->name,
+                        ]
                     ];
-                }, config('app.key_traits'))),
+                }, array_slice(config('app.key_traits'), 0, 4)),
             ]);
+
+            // Aggiungi commenti per ogni pagina
+            foreach (range(1, 3) as $commentIndex) {
+                Comment::create([
+                    'page_id' => $page->id,
+                    'author' => $faker->name,
+                    'content' => $faker->sentence(),
+                ]);
+            }
+
         }
     }
 }
