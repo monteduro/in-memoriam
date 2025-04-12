@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Comment;
+use App\Models\FlowerDonation;
 use Illuminate\Database\Seeder;
 use App\Models\Page;
 use Faker\Factory as Faker;
@@ -42,6 +43,15 @@ class PageSeeder extends Seeder
                 ]);
             }
 
+            // Aggiungi donazioni di fiori per ogni pagina
+            foreach (range(1, 2) as $flowerIndex) {
+                FlowerDonation::create([
+                    'page_id' => $page->id,
+                    'name' => $faker->name,
+                    'flower_type' => $faker->randomElement(array_column(config('app.flowers'), 'key')),
+                    'approved' => $faker->boolean,
+                ]);
+            }
         }
     }
 }

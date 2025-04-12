@@ -28,4 +28,8 @@ class Page extends Model
         return $this->hasMany(Comment::class);
     }
 
+    public function flowers()
+    {
+        return $this->hasMany(FlowerDonation::class);
+    }
 }

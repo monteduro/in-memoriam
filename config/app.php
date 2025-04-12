@@ -187,6 +187,29 @@ return [
                     ->nullable(),
             ]
         ]
+    ],
+
+    'flowers' => [
+        [
+            'key' => 'rose',
+            'name' => 'Rose',
+            'icon' => '🌹',
+        ],
+        [
+            'key' => 'tulip',
+            'name' => 'Tulip',
+            'icon' => '🌷',
+        ],
+        [
+            'key' => 'sunflower',
+            'name' => 'Sunflower',
+            'icon' => '🌻',
+        ],
+        [
+            'key' => 'daisy',
+            'name' => 'Daisy',
+            'icon' => '🌼',
+        ],
     ]
 
 ];

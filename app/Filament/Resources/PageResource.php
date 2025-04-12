@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\PageResource\Pages;
+use App\Filament\Resources\RelationManagers\FlowersRelationManager;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -90,6 +91,7 @@ class PageResource extends Resource
     {
         return [
            CommentsRelationManager::class,
+           FlowersRelationManager::class,
         ];
     }
 
