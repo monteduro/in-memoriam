@@ -25,10 +25,10 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('dashboard')
-            ->path('/')
+            ->path('/dash')
             ->login()
             ->colors([
-                'primary' => Color::Purple,
+                'primary' => Color::Violet,
             ])
             ->brandLogo(asset('logo.svg'))
             ->darkModeBrandLogo(asset('logo-white.svg'))
