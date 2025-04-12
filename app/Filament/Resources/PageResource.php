@@ -35,6 +35,9 @@ class PageResource extends Resource
             ->schema([
                 Section::make('Informazioni Personali')
                     ->schema([
+                        Forms\Components\FileUpload::make('image_path')
+                            ->label('Image')
+                            ->directory('page-images'),
                         Forms\Components\TextInput::make('name')
                             ->required(),
                         Forms\Components\DatePicker::make('birth_date')
