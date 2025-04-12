@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PageResource\Pages;
-use App\Filament\Resources\PageResource\RelationManagers;
 use App\Models\Page;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
@@ -12,7 +11,6 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class PageResource extends Resource
 {
@@ -29,6 +27,8 @@ class PageResource extends Resource
 
     public static function form(Form $form): Form
     {
+        $keyTraits = config('app.key_traits');
+
         return $form
             ->schema([
                 Section::make('Informazioni Personali')
@@ -43,13 +43,25 @@ class PageResource extends Resource
                             ->required(),
                         Forms\Components\Textarea::make('biography')
                             ->required(),
-                        Forms\Components\Repeater::make('key_traits')
-                            ->schema([
-                                Forms\Components\TextInput::make('trait')
-                                    ->required(),
-                            ])
-                            ->createItemButtonLabel('Add Trait'),
                     ]),
+                Section::make('Key Traits')
+                    ->schema([
+                        Forms\Components\Builder::make('key_traits')
+                            ->blockNumbers(false)
+                            ->addActionLabel('+ Add Key Trait')
+                            ->hiddenLabel()
+                            ->blocks(array_map(function ($trait) {
+                                return Forms\Components\Builder\Block::make($trait['key'])
+                                    ->schema([
+                                        Forms\Components\Hidden::make('key')
+                                            ->default($trait['key']),
+                                        ...$trait['components']
+                                    ])
+                                    ->icon($trait['icon'])
+                                    ->label($trait['label'])
+                                    ->columns(1);
+                            }, $keyTraits)),
+                    ])
             ]);
     }
 

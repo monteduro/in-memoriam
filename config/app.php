@@ -123,4 +123,70 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    'key_traits' => [
+        [
+            'key' => 'favorite_singer',
+            'label' => 'Favorite Singer',
+            'icon' => 'heroicon-o-musical-note',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('value')
+                    ->hiddenLabel()
+                    ->nullable(),
+            ]
+        ],
+        [
+            'key' => 'favorite_book',
+            'label' => 'Favorite Book',
+            'icon' => 'heroicon-o-book-open',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('value')
+                    ->hiddenLabel()
+                    ->nullable(),
+                ]
+        ],
+        [
+            'key' => 'favorite_movie',
+            'label' => 'Favorite Movie',
+            'icon' => 'heroicon-o-film',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('value')
+                    ->hiddenLabel()
+                    ->nullable(),
+            ]
+        ],
+        [
+            'key' => 'favorite_team',
+            'label' => 'Favorite Team',
+            'icon' => 'heroicon-o-heart',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('value')
+                    ->hiddenLabel()
+                    ->nullable(),
+            ]
+        ],
+        [
+            'key' => 'hobby',
+            'label' => 'Hobby',
+            'icon' => 'heroicon-o-pencil',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('value')
+                    ->hiddenLabel()
+                    ->nullable(),
+            ]
+        ],
+        [
+            'key' => 'custom',
+            'label' => 'Custom',
+            'icon' => 'heroicon-o-face-smile',
+            'components' => [
+                Filament\Forms\Components\TextInput::make('label')
+                    ->label('Label')
+                    ->nullable(),
+                Filament\Forms\Components\TextInput::make('value')
+                    ->label('Value')
+                    ->nullable(),
+            ]
+        ]
+    ]
+
 ];
