@@ -4,7 +4,22 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>In Memoriam</title>
+        <title>{{ config('app.name') }}</title>
+
+        <meta property="og:title" content="{{ config('app.name')  }}">
+        <meta property="og:description" content="A digital memorial service where families can create a tribute page for loved ones, share memories, and receive messages or flower donations.">
+        <meta property="og:image" content="{{ asset('images/splash.jpg') }}">
+        <meta property="og:image:width" content="1200">
+        <meta property="og:image:height" content="630">
+        <meta property="og:url" content="{{ config('app.url') }}">
+        <meta property="og:type" content="website">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ config('app.name')  }}">
+        <meta name="twitter:description" content="A digital memorial service where families can create a tribute page for loved ones, share memories, and receive messages or flower donations.">
+        <meta name="twitter:image" content="{{ asset('images/splash.jpg') }}">
+        <meta name="twitter:url" content="{{ config('app.url') }}">
+        <meta name="twitter:site" content="@stemonteduro">
+
         <link rel="icon" href="{{ asset('favicon.ico') }}">
 
         <!-- Fonts -->
