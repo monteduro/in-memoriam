@@ -50,7 +50,7 @@
             <h1 class="text-xl md:text-2xl lg:text-3xl font-bold">Coming Soon</h1>
             <p class="mt-4">
                 Follow the build in public thread on 𝕏,
-                <a href="https://x.com/stemonteduro/status/1911056840634360063" class="text-violet-500 underline" target="_blank">click here</a>
+                <a href="https://x.com/stemonteduro/status/1912154427307196821" class="text-violet-500 underline" target="_blank">click here</a>
             </p>
         </div>
     </body>
