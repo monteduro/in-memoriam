@@ -6,6 +6,7 @@ use App\Filament\Resources\RelationManagers\CommentsRelationManager;
 use App\Filament\Resources\PageResource\Pages;
 use App\Filament\Resources\RelationManagers\FlowersRelationManager;
 use App\Models\Page;
+use App\Support\FilamentFieldFactory;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Form;
@@ -57,15 +58,20 @@ class PageResource extends Resource
                             ->hiddenLabel()
                             ->blocks(array_map(function ($trait) {
                                 return Forms\Components\Builder\Block::make($trait['key'])
-                                    ->schema([
-                                        ...$trait['components']
-                                    ])
+                                    ->schema(static::resolveTraitComponents($trait['components'] ?? []))
                                     ->icon($trait['icon'])
                                     ->label($trait['label'])
                                     ->columns(1);
                             }, $keyTraits)),
                     ])
             ]);
+    }
+
+    protected static function resolveTraitComponents(array $components): array
+    {
+        return array_map(function (array $component) {
+            return FilamentFieldFactory::make($component);
+        }, $components);
     }
 
     public static function table(Table $table): Table

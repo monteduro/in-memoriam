@@ -128,64 +128,89 @@ return [
             'key' => 'favorite_singer',
             'label' => 'Favorite Singer',
             'icon' => 'heroicon-o-musical-note',
-            'components' => [
-                Filament\Forms\Components\TextInput::make('value')
-                    ->hiddenLabel()
-                    ->nullable(),
-            ]
+            'components' => [[
+                'class' => Filament\Forms\Components\TextInput::class,
+                'make' => 'value',
+                'methods' => [
+                    'hiddenLabel' => true,
+                    'nullable' => true,
+                ],
+            ]],
         ],
         [
             'key' => 'favorite_book',
             'label' => 'Favorite Book',
             'icon' => 'heroicon-o-book-open',
-            'components' => [
-                Filament\Forms\Components\TextInput::make('value')
-                    ->hiddenLabel()
-                    ->nullable(),
-                ]
+            'components' => [[
+                'class' => Filament\Forms\Components\TextInput::class,
+                'make' => 'value',
+                'methods' => [
+                    'hiddenLabel' => true,
+                    'nullable' => true,
+                ],
+            ]],
         ],
         [
             'key' => 'favorite_movie',
             'label' => 'Favorite Movie',
             'icon' => 'heroicon-o-film',
-            'components' => [
-                Filament\Forms\Components\TextInput::make('value')
-                    ->hiddenLabel()
-                    ->nullable(),
-            ]
+            'components' => [[
+                'class' => Filament\Forms\Components\TextInput::class,
+                'make' => 'value',
+                'methods' => [
+                    'hiddenLabel' => true,
+                    'nullable' => true,
+                ],
+            ]],
         ],
         [
             'key' => 'favorite_team',
             'label' => 'Favorite Team',
             'icon' => 'heroicon-o-heart',
-            'components' => [
-                Filament\Forms\Components\TextInput::make('value')
-                    ->hiddenLabel()
-                    ->nullable(),
-            ]
+            'components' => [[
+                'class' => Filament\Forms\Components\TextInput::class,
+                'make' => 'value',
+                'methods' => [
+                    'hiddenLabel' => true,
+                    'nullable' => true,
+                ],
+            ]],
         ],
         [
             'key' => 'hobby',
             'label' => 'Hobby',
             'icon' => 'heroicon-o-pencil',
-            'components' => [
-                Filament\Forms\Components\TextInput::make('value')
-                    ->hiddenLabel()
-                    ->nullable(),
-            ]
+            'components' => [[
+                'class' => Filament\Forms\Components\TextInput::class,
+                'make' => 'value',
+                'methods' => [
+                    'hiddenLabel' => true,
+                    'nullable' => true,
+                ],
+            ]],
         ],
         [
             'key' => 'custom',
             'label' => 'Custom',
             'icon' => 'heroicon-o-face-smile',
             'components' => [
-                Filament\Forms\Components\TextInput::make('label')
-                    ->label('Label')
-                    ->nullable(),
-                Filament\Forms\Components\TextInput::make('value')
-                    ->label('Value')
-                    ->nullable(),
-            ]
+                [
+                    'class' => Filament\Forms\Components\TextInput::class,
+                    'make' => 'label',
+                    'methods' => [
+                        'label' => 'Label',
+                        'nullable' => true,
+                    ],
+                ],
+                [
+                    'class' => Filament\Forms\Components\TextInput::class,
+                    'make' => 'value',
+                    'methods' => [
+                        'label' => 'Value',
+                        'nullable' => true,
+                    ],
+                ],
+            ],
         ]
     ],
 
